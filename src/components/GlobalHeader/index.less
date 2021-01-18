@@ -1,0 +1,36 @@
+.globalHeaderContain {
+  padding: 0px;
+  height: 48px;
+  line-height: 48px;
+  width: 100%;
+  z-index: 19;
+  background: #001529;
+  color: rgba(0,0,0,.85);
+  
+  .globalHeader {
+    position: relative;
+    display: grid;
+    grid-template-columns: 85% 15%;
+    align-items: center;
+    height: 100%;
+    padding: 0 16px;
+    background: #fff;
+    box-shadow: 0 1px 4px rgba(0,21,41,.08);
+
+    .headerList {
+      text-align: right;
+
+      .clickedBtn {
+        display: inline-block;
+        padding: 0 25px;
+        width: auto;
+        height: 100%;
+        white-space: nowrap;
+      }
+
+      .clickedBtn:hover {
+        background-color: rgb(245, 245, 245);
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+    "presets": [
+        "env",
+        "react",
+        "stage-0"
+    ],
+    "plugins": [
+        [
+            // antd按需引入
+            "import",
+            {
+                "libraryName": "antd",
+                "libraryDirectory": "es",
+                "style": "css"
+            }
+        ]
+    ]
+}
