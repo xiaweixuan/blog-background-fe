@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import BasicMenu from "../BasicMenu";
+import BasicMenu from "./BasicMenu";
 import styles from "./index.less";
 
 const AsideMenu = (props) => {
@@ -12,4 +12,4 @@ const AsideMenu = (props) => {
   </Fragment>
 }
 
-export default AsideMenu
+export default AsideMenu;

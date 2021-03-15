@@ -28,6 +28,11 @@ module.exports = merge(baseConfig, {
     historyApiFallback: true,
     contentBase: './dist',
     port: 3000,
+    proxy: {
+      "/api": {
+        target: "http://localhost:4000"
+      }
+    }
     // before(app) {
     //   apiMocker(app, path.resolve('./mock'))
     // }

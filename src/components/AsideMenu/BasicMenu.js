@@ -1,19 +1,22 @@
 import React, { useState, useMemo } from "react";
-import styles from './index.less'
+import Authorized from '../utils/Authorized';
+import { getMenuName } from '../utils/getMenuName';
+import styles from './index.less';
 
 const MenuList = (props) => {
-  const { history, routesList } = props;
+  const { location: { pathname }, history, routesList: routes } = props;
 
+  const routesList = routes ? routes.filter(item => item.showMenu !== false) : [];
 
-  const [clicked, setClicked] = useState();
+  const [clicked, setClicked] = useState(getMenuName(pathname.split('/')[1]));
 
   const showMenu = useMemo(() => {
     return clicked || (routesList.length > 0 && routesList[0].name)
-  }, [routesList, clicked])
+  }, [routesList, clicked, window.location.pathname])
 
   const handleClick = (item) => {
     const { name, path } = item;
-    if (name === clicked) return;
+    if (name === clicked && (pathname === path || pathname === `${path}/overview`)) return;
     setClicked(name);
     history.push(path);
   }
@@ -21,7 +24,7 @@ const MenuList = (props) => {
   return <div className={styles.menuList}>
     {
       routesList.map(item =>
-        <div
+        Authorized.check(item.authority, <div
           className={
             item.name === showMenu ?
               `${styles.defaultItem} ${styles.clickedItem}` :
@@ -30,7 +33,7 @@ const MenuList = (props) => {
           onClick={() => handleClick(item)}
           key={item.name}>
           {item.name}
-        </div>)
+        </div>, ''))
     }
   </div>
 }

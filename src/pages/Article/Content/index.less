@@ -1,0 +1,43 @@
+
+.headerWrapper {
+  background-color: #fff;
+  margin: -8px -15px 10px -15px;
+  padding: 15px;
+  .headerContent {
+    display: flex;
+    overflow: hidden;
+    .buttons {
+      min-width: 200px;
+      button:not(:last-child) {
+        margin-right: 16px;
+      }
+    }
+    .desc {
+      margin-left: 20px;
+      padding-left: 20px;
+      border-left: 1px solid #ccc;
+    }
+  }
+}
+.collapse {
+  height: 0;
+}
+.collapseSwitchContain {
+  text-align: right;
+  color: #59afff;
+}
+
+.collapseSwitch {
+  cursor: pointer;
+}
+
+.collapseSwitchIcon {
+  display: inline-block;
+  transform: rotate(90deg);
+  // transition: transform 0.3s linear;
+}
+.collapseSwitchIconActived {
+  display: inline-block;
+  transform: rotate(270deg);
+  // transition: transform 0.3s linear;
+}

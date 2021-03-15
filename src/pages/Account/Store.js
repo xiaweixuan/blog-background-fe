@@ -33,20 +33,20 @@ export const useStoreActions = () => {
   if (dispatch === undefined) {
     throw new Error('useStoreActions must be used within a Store.Provider');
   }
-  const updateAccountMsg = useCallback(
-    async (payload) => {
-      const data = await requestUpdateAccountMsg(payload);
+  const onUpdate = useCallback(
+    async (updateAccountDto) => {
+      const data = await requestUpdateAccountMsg({ updateAccountDto });
       if (data) {
         dispatch({ type: 'saveAccountMsg', payload: data });
       }
     },
     [dispatch],
   );
-  return { updateAccountMsg };
+  return { onUpdate };
 };
 
 const AccountStore = ({ children }) => {
-  const [state, dispatch] = useReducer(reducer, { accountMsg : {} });
+  const [state, dispatch] = useReducer(reducer, { accountMsg: {} });
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -54,9 +54,9 @@ const AccountStore = ({ children }) => {
     (async () => {
       setLoading(true);
       const data = await queryAccountMsg();
+      setLoading(false);
       if (data && !didCancel) {
         dispatch({ type: 'saveAccountMsg', payload: data });
-        setLoading(false);
       }
     })();
     return () => {

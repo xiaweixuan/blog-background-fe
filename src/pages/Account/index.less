@@ -1,0 +1,58 @@
+.cardContain {
+  display: grid;
+  grid-template-columns: 350px 1fr;
+  grid-gap: 15px;
+}
+
+.avatarHolder {
+  text-align: center;
+  margin-bottom: 24px;
+
+  & > img {
+    width: 104px;
+    height: 104px;
+    margin-bottom: 20px;
+  }
+
+  .name {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+    color: grey;
+    margin-bottom: 4px;
+  }
+}
+
+.detail {
+  padding: 0 50px;
+  p {
+    margin-bottom: 8px;
+    padding-left: 26px;
+    position: relative;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  i {
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    left: 0;
+    top: 4px;
+    background: url(https://gw.alipayobjects.com/zos/rmsportal/pBjWzVAHnOOtAUvZmZfy.svg);
+
+    &.title {
+      background-position: 0 0;
+    }
+
+    &.group {
+      background-position: 0 -22px;
+    }
+
+    &.address {
+      background-position: 0 -44px;
+    }
+  }
+}
