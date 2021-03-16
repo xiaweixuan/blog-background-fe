@@ -5,12 +5,15 @@ import Footer from './Footer';
 import Header from './Header';
 import { useStoreState } from '../../store/globalStore'
 import styles from './index.less';
+import { requestVerifyLogin } from '../../services/global';
 
 const DefaultLayout = (props) => {
     const { children, history } = props;
     useEffect(() => {
         (async () => {
             setAuthority('user');
+            const { success } = await requestVerifyLogin();
+            !success && history.push('/user');
         })()
     }, []);
     const { menuData } = useStoreState()

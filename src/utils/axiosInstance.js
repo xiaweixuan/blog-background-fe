@@ -1,5 +1,6 @@
 import axios from 'axios';
 import defaultSettings from '../defaultSettings';
+import { notification } from 'antd';
 
 const { apiBaseURL } = defaultSettings;
 
@@ -47,11 +48,15 @@ const axiosInstance = axios.create({
   timeout: 60000,
 });
 
-axiosInstance.interceptors.request.use((config) => {
-  return config;
-}, (error) => {
-  return Promise.reject(error);
-});
+axiosInstance.interceptors.request.use(
+  async (config) => {
+    config.headers['x-jwt-token'] = `${localStorage.getItem('jwt') || ''}`;
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
 
 axiosInstance.interceptors.response.use((response) => {
   return response;

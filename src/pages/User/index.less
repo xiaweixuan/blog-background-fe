@@ -1,0 +1,56 @@
+.background {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  background-image: url('/src/assets/bg.jpg');
+  background-size: cover;
+}
+.backgroundShadow {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.main {
+  position: relative;
+  overflow: hidden;
+  .loginCard {
+    position: relative;
+    width: 350px;
+    height: 550px;
+    margin: 50px auto;
+    padding: 85px 20px;
+    text-align: center;
+    box-shadow: 5px 5px 20px #000;
+    background: white;
+    .title {
+      margin-bottom: 15px;
+    }
+    .character1 {
+      position: absolute;
+      width: 230px;
+      bottom: 0;
+      left: -45;
+    }
+    .character2 {
+      position: absolute;
+      width: 230px;
+      bottom: 0;
+      right: 0;
+    }
+    .input {
+      width: 80%;
+      height: 40px;
+      margin-top: 25px;
+      padding: 0 20px;
+      border: 2px solid;
+      border-color: rgb(235, 235, 235);
+      border-radius: 20px;
+    }
+    .input:focus {
+      border-color: pink;
+    }
+  }
+}
